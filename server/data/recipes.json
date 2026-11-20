@@ -1,0 +1,824 @@
+[
+ {
+  "id": "spaghetti-aglio-e-olio",
+  "title": "Spaghetti Aglio e Olio",
+  "minutes": 20,
+  "servings": 2,
+  "tags": [
+   "vegetarian",
+   "quick"
+  ],
+  "ingredients": [
+   {
+    "name": "pasta",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "garlic",
+    "qty": 4,
+    "unit": "clove"
+   },
+   {
+    "name": "oil",
+    "qty": 60,
+    "unit": "ml",
+    "staple": true
+   },
+   {
+    "name": "chili flakes",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "name": "parsley",
+    "qty": 1,
+    "unit": "bunch"
+   },
+   {
+    "name": "salt",
+    "qty": 1,
+    "unit": "tsp",
+    "staple": true
+   }
+  ],
+  "steps": [
+   "Boil pasta in salted water until al dente.",
+   "Gently fry sliced garlic and chili flakes in oil until golden.",
+   "Toss drained pasta with the oil, a splash of pasta water and parsley."
+  ]
+ },
+ {
+  "id": "tomato-basil-pasta",
+  "title": "Tomato Basil Pasta",
+  "minutes": 25,
+  "servings": 3,
+  "tags": [
+   "vegetarian"
+  ],
+  "ingredients": [
+   {
+    "name": "pasta",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "tomato",
+    "qty": 4,
+    "unit": ""
+   },
+   {
+    "name": "garlic",
+    "qty": 2,
+    "unit": "clove"
+   },
+   {
+    "name": "basil",
+    "qty": 1,
+    "unit": "bunch"
+   },
+   {
+    "name": "oil",
+    "qty": 2,
+    "unit": "tbsp",
+    "staple": true
+   },
+   {
+    "name": "parmesan",
+    "qty": 40,
+    "unit": "g"
+   },
+   {
+    "name": "salt",
+    "qty": 1,
+    "unit": "tsp",
+    "staple": true
+   }
+  ],
+  "steps": [
+   "Cook the pasta.",
+   "Saut\u00e9 garlic, add chopped tomatoes and simmer 10 minutes.",
+   "Toss with pasta, basil and parmesan."
+  ]
+ },
+ {
+  "id": "chicken-fried-rice",
+  "title": "Chicken Fried Rice",
+  "minutes": 25,
+  "servings": 3,
+  "tags": [
+   "quick"
+  ],
+  "ingredients": [
+   {
+    "name": "rice",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "chicken",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "egg",
+    "qty": 2,
+    "unit": ""
+   },
+   {
+    "name": "green onion",
+    "qty": 3,
+    "unit": ""
+   },
+   {
+    "name": "soy sauce",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "name": "frozen pea",
+    "qty": 100,
+    "unit": "g"
+   },
+   {
+    "name": "carrot",
+    "qty": 1,
+    "unit": ""
+   },
+   {
+    "name": "oil",
+    "qty": 2,
+    "unit": "tbsp",
+    "staple": true
+   }
+  ],
+  "steps": [
+   "Cook rice and let it cool (day-old rice is best).",
+   "Stir-fry diced chicken, then carrot and peas.",
+   "Push aside, scramble the eggs, add rice and soy sauce, finish with green onion."
+  ]
+ },
+ {
+  "id": "veggie-omelette",
+  "title": "Veggie Omelette",
+  "minutes": 10,
+  "servings": 1,
+  "tags": [
+   "vegetarian",
+   "quick",
+   "breakfast"
+  ],
+  "ingredients": [
+   {
+    "name": "egg",
+    "qty": 3,
+    "unit": ""
+   },
+   {
+    "name": "spinach",
+    "qty": 1,
+    "unit": "handful"
+   },
+   {
+    "name": "tomato",
+    "qty": 1,
+    "unit": ""
+   },
+   {
+    "name": "cheddar",
+    "qty": 30,
+    "unit": "g"
+   },
+   {
+    "name": "butter",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "name": "salt",
+    "qty": 0.5,
+    "unit": "tsp",
+    "staple": true
+   },
+   {
+    "name": "pepper",
+    "qty": 0.25,
+    "unit": "tsp",
+    "staple": true
+   }
+  ],
+  "steps": [
+   "Whisk eggs with salt and pepper.",
+   "Melt butter, pour in eggs, add fillings when half set.",
+   "Fold and serve."
+  ]
+ },
+ {
+  "id": "black-bean-tacos",
+  "title": "Black Bean Tacos",
+  "minutes": 20,
+  "servings": 4,
+  "tags": [
+   "vegetarian",
+   "quick"
+  ],
+  "ingredients": [
+   {
+    "name": "tortilla",
+    "qty": 8,
+    "unit": ""
+   },
+   {
+    "name": "black bean",
+    "qty": 2,
+    "unit": "can"
+   },
+   {
+    "name": "avocado",
+    "qty": 2,
+    "unit": ""
+   },
+   {
+    "name": "lime",
+    "qty": 1,
+    "unit": ""
+   },
+   {
+    "name": "onion",
+    "qty": 1,
+    "unit": ""
+   },
+   {
+    "name": "coriander",
+    "qty": 1,
+    "unit": "bunch"
+   },
+   {
+    "name": "cheddar",
+    "qty": 80,
+    "unit": "g"
+   },
+   {
+    "name": "cumin",
+    "qty": 1,
+    "unit": "tsp"
+   }
+  ],
+  "steps": [
+   "Warm beans with cumin and diced onion.",
+   "Mash avocado with lime juice and salt.",
+   "Fill tortillas with beans, avocado, cheese and coriander."
+  ]
+ },
+ {
+  "id": "beef-chili",
+  "title": "Beef Chili",
+  "minutes": 60,
+  "servings": 6,
+  "tags": [
+   "hearty"
+  ],
+  "ingredients": [
+   {
+    "name": "beef",
+    "qty": 500,
+    "unit": "g"
+   },
+   {
+    "name": "onion",
+    "qty": 1,
+    "unit": ""
+   },
+   {
+    "name": "garlic",
+    "qty": 3,
+    "unit": "clove"
+   },
+   {
+    "name": "kidney bean",
+    "qty": 2,
+    "unit": "can"
+   },
+   {
+    "name": "crushed tomato",
+    "qty": 1,
+    "unit": "can"
+   },
+   {
+    "name": "chili powder",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "name": "cumin",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "name": "oil",
+    "qty": 1,
+    "unit": "tbsp",
+    "staple": true
+   }
+  ],
+  "steps": [
+   "Brown beef with onion and garlic.",
+   "Add spices, tomatoes and beans.",
+   "Simmer 40 minutes."
+  ]
+ },
+ {
+  "id": "chickpea-curry",
+  "title": "Chickpea Curry",
+  "minutes": 30,
+  "servings": 4,
+  "tags": [
+   "vegan",
+   "vegetarian"
+  ],
+  "ingredients": [
+   {
+    "name": "chickpea",
+    "qty": 2,
+    "unit": "can"
+   },
+   {
+    "name": "onion",
+    "qty": 1,
+    "unit": ""
+   },
+   {
+    "name": "garlic",
+    "qty": 3,
+    "unit": "clove"
+   },
+   {
+    "name": "ginger",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "name": "crushed tomato",
+    "qty": 1,
+    "unit": "can"
+   },
+   {
+    "name": "coconut milk",
+    "qty": 1,
+    "unit": "can"
+   },
+   {
+    "name": "curry powder",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "name": "rice",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "oil",
+    "qty": 1,
+    "unit": "tbsp",
+    "staple": true
+   }
+  ],
+  "steps": [
+   "Soften onion, garlic and ginger in oil; add curry powder.",
+   "Add tomatoes, coconut milk and chickpeas; simmer 15 minutes.",
+   "Serve over rice."
+  ]
+ },
+ {
+  "id": "grilled-cheese",
+  "title": "Grilled Cheese Sandwich",
+  "minutes": 10,
+  "servings": 1,
+  "tags": [
+   "vegetarian",
+   "quick"
+  ],
+  "ingredients": [
+   {
+    "name": "bread",
+    "qty": 2,
+    "unit": "slice"
+   },
+   {
+    "name": "cheddar",
+    "qty": 60,
+    "unit": "g"
+   },
+   {
+    "name": "butter",
+    "qty": 1,
+    "unit": "tbsp"
+   }
+  ],
+  "steps": [
+   "Butter the bread, fill with cheese.",
+   "Toast in a pan until golden on both sides."
+  ]
+ },
+ {
+  "id": "tomato-soup",
+  "title": "Tomato Soup",
+  "minutes": 35,
+  "servings": 4,
+  "tags": [
+   "vegetarian"
+  ],
+  "ingredients": [
+   {
+    "name": "crushed tomato",
+    "qty": 2,
+    "unit": "can"
+   },
+   {
+    "name": "onion",
+    "qty": 1,
+    "unit": ""
+   },
+   {
+    "name": "garlic",
+    "qty": 2,
+    "unit": "clove"
+   },
+   {
+    "name": "vegetable broth",
+    "qty": 500,
+    "unit": "ml"
+   },
+   {
+    "name": "cream",
+    "qty": 100,
+    "unit": "ml"
+   },
+   {
+    "name": "butter",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "name": "salt",
+    "qty": 1,
+    "unit": "tsp",
+    "staple": true
+   }
+  ],
+  "steps": [
+   "Soften onion and garlic in butter.",
+   "Add tomatoes and broth, simmer 20 minutes, blend.",
+   "Stir in cream."
+  ]
+ },
+ {
+  "id": "banana-pancakes",
+  "title": "Banana Pancakes",
+  "minutes": 20,
+  "servings": 2,
+  "tags": [
+   "vegetarian",
+   "breakfast"
+  ],
+  "ingredients": [
+   {
+    "name": "banana",
+    "qty": 2,
+    "unit": ""
+   },
+   {
+    "name": "egg",
+    "qty": 2,
+    "unit": ""
+   },
+   {
+    "name": "flour",
+    "qty": 100,
+    "unit": "g"
+   },
+   {
+    "name": "milk",
+    "qty": 100,
+    "unit": "ml"
+   },
+   {
+    "name": "baking powder",
+    "qty": 1,
+    "unit": "tsp"
+   },
+   {
+    "name": "butter",
+    "qty": 1,
+    "unit": "tbsp"
+   }
+  ],
+  "steps": [
+   "Mash bananas, whisk in eggs and milk.",
+   "Fold in flour and baking powder.",
+   "Cook ladles of batter in buttered pan until bubbles form; flip."
+  ]
+ },
+ {
+  "id": "lemon-garlic-salmon",
+  "title": "Lemon Garlic Salmon",
+  "minutes": 20,
+  "servings": 2,
+  "tags": [
+   "quick",
+   "seafood"
+  ],
+  "ingredients": [
+   {
+    "name": "salmon",
+    "qty": 2,
+    "unit": "fillet"
+   },
+   {
+    "name": "lemon",
+    "qty": 1,
+    "unit": ""
+   },
+   {
+    "name": "garlic",
+    "qty": 2,
+    "unit": "clove"
+   },
+   {
+    "name": "butter",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "name": "broccoli",
+    "qty": 1,
+    "unit": "head"
+   },
+   {
+    "name": "salt",
+    "qty": 0.5,
+    "unit": "tsp",
+    "staple": true
+   },
+   {
+    "name": "pepper",
+    "qty": 0.25,
+    "unit": "tsp",
+    "staple": true
+   }
+  ],
+  "steps": [
+   "Roast broccoli at 220\u00b0C for 10 minutes.",
+   "Sear salmon in butter and garlic 4 minutes per side.",
+   "Finish with lemon juice."
+  ]
+ },
+ {
+  "id": "greek-salad",
+  "title": "Greek Salad",
+  "minutes": 10,
+  "servings": 2,
+  "tags": [
+   "vegetarian",
+   "quick"
+  ],
+  "ingredients": [
+   {
+    "name": "cucumber",
+    "qty": 1,
+    "unit": ""
+   },
+   {
+    "name": "tomato",
+    "qty": 3,
+    "unit": ""
+   },
+   {
+    "name": "red onion",
+    "qty": 0.5,
+    "unit": ""
+   },
+   {
+    "name": "feta",
+    "qty": 100,
+    "unit": "g"
+   },
+   {
+    "name": "olive",
+    "qty": 60,
+    "unit": "g"
+   },
+   {
+    "name": "oil",
+    "qty": 2,
+    "unit": "tbsp",
+    "staple": true
+   }
+  ],
+  "steps": [
+   "Chop vegetables into chunks.",
+   "Top with feta and olives, dress with oil."
+  ]
+ },
+ {
+  "id": "beef-stir-fry",
+  "title": "Beef & Broccoli Stir-Fry",
+  "minutes": 25,
+  "servings": 3,
+  "tags": [
+   "quick"
+  ],
+  "ingredients": [
+   {
+    "name": "beef",
+    "qty": 300,
+    "unit": "g"
+   },
+   {
+    "name": "broccoli",
+    "qty": 1,
+    "unit": "head"
+   },
+   {
+    "name": "garlic",
+    "qty": 2,
+    "unit": "clove"
+   },
+   {
+    "name": "ginger",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "name": "soy sauce",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "name": "rice",
+    "qty": 250,
+    "unit": "g"
+   },
+   {
+    "name": "oil",
+    "qty": 1,
+    "unit": "tbsp",
+    "staple": true
+   }
+  ],
+  "steps": [
+   "Cook rice.",
+   "Sear sliced beef, remove; stir-fry broccoli, garlic and ginger.",
+   "Return beef, add soy sauce, serve over rice."
+  ]
+ },
+ {
+  "id": "potato-leek-soup",
+  "title": "Potato Soup",
+  "minutes": 40,
+  "servings": 4,
+  "tags": [
+   "vegetarian"
+  ],
+  "ingredients": [
+   {
+    "name": "potato",
+    "qty": 4,
+    "unit": ""
+   },
+   {
+    "name": "onion",
+    "qty": 1,
+    "unit": ""
+   },
+   {
+    "name": "garlic",
+    "qty": 2,
+    "unit": "clove"
+   },
+   {
+    "name": "vegetable broth",
+    "qty": 750,
+    "unit": "ml"
+   },
+   {
+    "name": "milk",
+    "qty": 150,
+    "unit": "ml"
+   },
+   {
+    "name": "butter",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "name": "salt",
+    "qty": 1,
+    "unit": "tsp",
+    "staple": true
+   }
+  ],
+  "steps": [
+   "Soften onion in butter.",
+   "Add potato, garlic and broth; simmer until tender.",
+   "Blend with milk."
+  ]
+ },
+ {
+  "id": "peanut-noodles",
+  "title": "Peanut Noodles",
+  "minutes": 20,
+  "servings": 2,
+  "tags": [
+   "vegan",
+   "quick"
+  ],
+  "ingredients": [
+   {
+    "name": "pasta",
+    "qty": 200,
+    "unit": "g"
+   },
+   {
+    "name": "peanut butter",
+    "qty": 3,
+    "unit": "tbsp"
+   },
+   {
+    "name": "soy sauce",
+    "qty": 2,
+    "unit": "tbsp"
+   },
+   {
+    "name": "lime",
+    "qty": 1,
+    "unit": ""
+   },
+   {
+    "name": "garlic",
+    "qty": 1,
+    "unit": "clove"
+   },
+   {
+    "name": "green onion",
+    "qty": 2,
+    "unit": ""
+   },
+   {
+    "name": "carrot",
+    "qty": 1,
+    "unit": ""
+   }
+  ],
+  "steps": [
+   "Cook noodles.",
+   "Whisk peanut butter, soy sauce, lime juice and garlic with warm water.",
+   "Toss with noodles, carrot and green onion."
+  ]
+ },
+ {
+  "id": "egg-fried-toast",
+  "title": "Eggs on Toast",
+  "minutes": 8,
+  "servings": 1,
+  "tags": [
+   "vegetarian",
+   "quick",
+   "breakfast"
+  ],
+  "ingredients": [
+   {
+    "name": "egg",
+    "qty": 2,
+    "unit": ""
+   },
+   {
+    "name": "bread",
+    "qty": 2,
+    "unit": "slice"
+   },
+   {
+    "name": "butter",
+    "qty": 1,
+    "unit": "tbsp"
+   },
+   {
+    "name": "avocado",
+    "qty": 0.5,
+    "unit": ""
+   },
+   {
+    "name": "salt",
+    "qty": 0.25,
+    "unit": "tsp",
+    "staple": true
+   }
+  ],
+  "steps": [
+   "Toast bread.",
+   "Fry eggs in butter.",
+   "Serve over toast with sliced avocado."
+  ]
+ }
+]

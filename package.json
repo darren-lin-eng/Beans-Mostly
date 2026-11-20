@@ -1,0 +1,11 @@
+{
+  "name": "beans-mostly",
+  "version": "0.1.0",
+  "description": "Search local grocery stores and match recipes to your shopping list or pantry (and back).",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "node --test \"test/*.test.js\""
+  },
+  "engines": { "node": ">=20" }
+}

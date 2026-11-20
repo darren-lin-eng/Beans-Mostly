@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beans Mostly</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Beans <span>Mostly</span></h1>
+  <nav role="tablist">
+    <button role="tab" data-tab="lists" aria-selected="true">My lists</button>
+    <button role="tab" data-tab="recipes">Recipes</button>
+    <button role="tab" data-tab="stores">Stores</button>
+  </nav>
+</header>
+
+<main>
+  <!-- LISTS -->
+  <section id="tab-lists" class="tab">
+    <div class="grid2">
+      <div class="card">
+        <h2>Pantry <small>what you already have</small></h2>
+        <form class="add" data-list="pantry"><input placeholder="e.g. rice, garlic, eggs" aria-label="Add pantry item" autocomplete="off"><button>Add</button></form>
+        <ul class="chips" id="pantry-list"></ul>
+      </div>
+      <div class="card">
+        <h2>Shopping list <small>what you're buying</small></h2>
+        <form class="add" data-list="shopping"><input placeholder="e.g. tomatoes, milk" aria-label="Add shopping item" autocomplete="off"><button>Add</button></form>
+        <ul class="chips" id="shopping-list"></ul>
+        <div class="row">
+          <button id="compare-prices" class="secondary">Compare prices at nearby stores</button>
+          <button id="clear-shopping" class="ghost">Clear</button>
+        </div>
+        <div id="price-results"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECIPES -->
+  <section id="tab-recipes" class="tab" hidden>
+    <div class="card">
+      <h2>Cook from what I have</h2>
+      <p class="muted">Matches recipes against your pantry and shopping list. Salt, oil and other staples are assumed.</p>
+      <div class="row" id="tag-filters"></div>
+      <div class="row">
+        <button id="find-recipes">Find recipes</button>
+        <button id="gen-recipes" class="secondary" title="Needs ANTHROPIC_API_KEY on the server">✨ Generate new ideas with Claude</button>
+        <input id="prefs" placeholder="Preferences (e.g. no dairy, spicy)" aria-label="Recipe preferences">
+      </div>
+      <p id="recipe-status" class="muted" role="status"></p>
+    </div>
+    <div id="recipe-results" class="cards"></div>
+
+    <div class="card" id="plan-card" hidden>
+      <h2>Meal plan → shopping list</h2>
+      <p class="muted">Recipes you picked. We subtract your pantry and add what's missing to your shopping list.</p>
+      <ul id="plan-list" class="plan"></ul>
+      <button id="build-list">Add missing ingredients to shopping list</button>
+      <p id="plan-status" class="muted" role="status"></p>
+    </div>
+  </section>
+
+  <!-- STORES -->
+  <section id="tab-stores" class="tab" hidden>
+    <div class="card">
+      <h2>Find stores near you</h2>
+      <div class="row">
+        <input id="loc" placeholder="ZIP code, city or address" aria-label="Location">
+        <button id="geo" class="secondary" type="button">📍 Use my location</button>
+        <select id="provider" aria-label="Store data source"></select>
+        <button id="search-stores">Search</button>
+      </div>
+      <p id="store-status" class="muted" role="status"></p>
+    </div>
+    <div id="store-results" class="cards"></div>
+  </section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
