@@ -24,8 +24,7 @@ Lists and the meal plan live in your browser's `localStorage`.
 
 | Provider | Stores | Prices | Setup |
 |---|---|---|---|
-| `sample` | fake, placed around you | yes (demo) | none — default |
-| `osm` | real, via OpenStreetMap | no | none |
+| `osm` | real, via OpenStreetMap (includes Aldi, Sam's Club, etc.) | no | none — default |
 | `kroger` | real Kroger-family stores | yes, live | `KROGER_CLIENT_ID` / `KROGER_CLIENT_SECRET` |
 
 Copy `.env.example` to `.env` to configure. Set `ANTHROPIC_API_KEY` to enable recipe generation.
@@ -36,8 +35,8 @@ To add a chain/aggregator (Instacart partner API, Walmart, Open Food Facts…), 
 
 - `src/normalize.rs` — ingredient-name matching ("tomatoes" ≈ "cherry tomato", but peanut butter ≠ butter)
 - `src/recipes.rs` — matching, shopping-list builder, Claude generation
-- `src/providers/` — `sample`, `osm`, `kroger`
+- `src/providers/` — `osm`, `kroger`
 - `src/api.rs` — HTTP routes; `src/main.rs` — startup and `.env` loading
-- `data/` — recipes and the sample catalog (compiled into the binary)
+- `data/` — recipes (compiled into the binary)
 - `public/` — vanilla-JS single-page UI
 - `tests/` — engine tests and HTTP end-to-end tests

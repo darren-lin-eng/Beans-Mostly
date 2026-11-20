@@ -1,7 +1,6 @@
 //! Store-data providers. Each knows how to find stores and (optionally) search a store's products.
 pub mod kroger;
 pub mod osm;
-pub mod sample;
 
 use serde::Serialize;
 use serde_json::Value;
@@ -66,36 +65,34 @@ pub struct Product {
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum Provider { Sample, Osm, Kroger }
+pub enum Provider { Osm, Kroger }
 
 impl Provider {
-    pub const ALL: [Provider; 3] = [Provider::Sample, Provider::Osm, Provider::Kroger];
+    pub const ALL: [Provider; 2] = [Provider::Osm, Provider::Kroger];
 
     pub fn from_id(id: &str) -> Option<Self> {
         Self::ALL.into_iter().find(|p| p.id() == id)
     }
-    /// Store ids look like "sample:valuemart" / "kroger:01400943" / "osm:node/123".
+    /// Store ids look like "kroger:01400943" / "osm:node/123".
     pub fn for_store(store_id: &str) -> Option<Self> {
         Self::from_id(store_id.split(':').next().unwrap_or(""))
     }
     pub fn id(self) -> &'static str {
-        match self { Self::Sample => "sample", Self::Osm => "osm", Self::Kroger => "kroger" }
+        match self { Self::Osm => "osm", Self::Kroger => "kroger" }
     }
     pub fn label(self) -> &'static str {
         match self {
-            Self::Sample => "Sample data (demo)",
             Self::Osm => "OpenStreetMap (real stores, no prices)",
             Self::Kroger => "Kroger family (live prices)",
         }
     }
-    pub fn has_products(self) -> bool { self != Self::Osm }
+    pub fn has_products(self) -> bool { self == Self::Kroger }
     pub fn available(self) -> bool {
         match self { Self::Kroger => kroger::configured(), _ => true }
     }
 
     pub async fn find_stores(self, loc: Option<(f64, f64)>, radius_km: f64) -> Result<Vec<Store>, String> {
         match self {
-            Self::Sample => Ok(sample::find_stores(loc, radius_km)),
             Self::Osm => osm::find_stores(loc.ok_or("A location is required")?, radius_km).await,
             Self::Kroger => kroger::find_stores(loc.ok_or("A location is required")?, radius_km).await,
         }
@@ -103,7 +100,6 @@ impl Provider {
 
     pub async fn search_products(self, store_id: &str, query: &str) -> Result<Vec<Product>, String> {
         match self {
-            Self::Sample => sample::search_products(store_id, query),
             Self::Osm => Ok(vec![]),
             Self::Kroger => kroger::search_products(store_id, query).await,
         }

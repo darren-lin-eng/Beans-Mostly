@@ -55,8 +55,8 @@ $('#compare-prices').onclick = async () => {
   if (!state.shopping.length) return out.replaceChildren(el('p', { className: 'muted' }, 'Add something to your shopping list first.'));
   out.replaceChildren(el('p', { className: 'muted' }, 'Checking prices…'));
   try {
-    if (!state.stores.some((s) => s.hasProducts)) await searchStores('sample', null, true);
     const ids = state.stores.filter((s) => s.hasProducts).map((s) => s.id);
+    if (!ids.length) return out.replaceChildren(el('p', { className: 'muted' }, 'No price data yet: search for stores using a source that has prices (e.g. Kroger) on the Stores tab. OpenStreetMap only has locations.'));
     const { stores } = await api('/api/prices', { items: state.shopping, storeIds: ids });
     const names = Object.fromEntries(state.stores.map((s) => [s.id, s.name]));
     out.replaceChildren(...stores.map((s, i) => el('details', { open: i === 0 },
@@ -100,7 +100,7 @@ function renderStores() {
 $('#search-stores').onclick = async () => {
   try {
     const provider = $('#provider').value, loc = $('#loc').value.trim();
-    if (provider !== 'sample' && !loc) return ($('#store-status').textContent = 'Enter a ZIP, city or address (or use your location).');
+    if (!loc) return ($('#store-status').textContent = 'Enter a ZIP, city or address (or use your location).');
     await searchStores(provider, loc || null);
   } catch (e) { $('#store-status').textContent = e.message; }
 };

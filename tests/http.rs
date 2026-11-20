@@ -28,23 +28,14 @@ async fn api_end_to_end() {
     let (st, b) = http(port, "GET", "/api/config", None).await;
     let cfg: Value = serde_json::from_str(&b).unwrap();
     assert_eq!(st, 200);
-    assert_eq!(cfg["providers"][0]["id"], "sample");
+    assert_eq!(cfg["providers"][0]["id"], "osm");
+    assert!(!cfg["providers"].as_array().unwrap().iter().any(|p| p["id"] == "sample"));
     assert!(cfg["tags"].as_array().unwrap().contains(&json!("vegan")));
-
-    let (_, b) = http(port, "GET", "/api/stores?provider=sample", None).await;
-    let v: Value = serde_json::from_str(&b).unwrap();
-    assert_eq!(v["stores"].as_array().unwrap().len(), 4);
-    assert_eq!(v["stores"][0]["hasProducts"], true);
 
     let (_, b) = http(port, "POST", "/api/recipes/match", Some(json!({"pantry": ["pasta", "garlic"], "shopping": ["tomatoes", "basil", "parmesan"]}))).await;
     let v: Value = serde_json::from_str(&b).unwrap();
     assert_eq!(v["recipes"][0]["id"], "tomato-basil-pasta");
     assert_eq!(v["recipes"][0]["usesPantry"], 2); // camelCase contract the frontend relies on
-
-    let (_, b) = http(port, "POST", "/api/prices", Some(json!({"items": ["milk"], "storeIds": ["sample:valuemart"]}))).await;
-    let v: Value = serde_json::from_str(&b).unwrap();
-    assert_eq!(v["stores"][0]["storeId"], "sample:valuemart");
-    assert!(v["stores"][0]["rows"][0]["product"]["price"].as_f64().unwrap() > 0.0);
 
     let (_, b) = http(port, "POST", "/api/recipes/shopping-list", Some(json!({"picks": [{"id": "tomato-basil-pasta", "servings": 3}], "pantry": ["pasta"]}))).await;
     let v: Value = serde_json::from_str(&b).unwrap();

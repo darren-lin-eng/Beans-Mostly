@@ -40,7 +40,7 @@ async fn config() -> Res {
 }
 
 async fn stores(Query(q): Query<HashMap<String, String>>) -> Res {
-    let p = Provider::from_id(q.get("provider").map_or("sample", String::as_str)).filter(|p| p.available())
+    let p = Provider::from_id(q.get("provider").map_or("osm", String::as_str)).filter(|p| p.available())
         .ok_or_else(|| ApiError::new(400, "Provider unavailable"))?;
     let num = |k: &str| q.get(k).and_then(|v| v.parse::<f64>().ok());
     let loc = match (num("lat"), num("lng"), q.get("q").filter(|s| !s.is_empty())) {
@@ -48,7 +48,7 @@ async fn stores(Query(q): Query<HashMap<String, String>>) -> Res {
         (_, _, Some(text)) => Some(osm::geocode(text).await.map_err(|e| ApiError::new(502, e))?),
         _ => None,
     };
-    if loc.is_none() && p != Provider::Sample {
+    if loc.is_none() {
         return Err(ApiError::new(400, "Provide lat/lng or a q= place/zip"));
     }
     let radius = num("radiusKm").filter(|r| *r > 0.0).unwrap_or(8.0).min(50.0);
@@ -87,7 +87,11 @@ pub async fn cheapest_per_item(items: &[String], store_ids: &[String]) -> Vec<St
             found: rows.iter().filter(|r| r.product.is_some()).count(), rows,
         }
     });
-    let mut stores = futures::future::join_all(per_store).await;
+    rank_stores(futures::future::join_all(per_store).await)
+}
+
+/// Best store first: most items found, then lowest total.
+pub fn rank_stores(mut stores: Vec<StorePrices>) -> Vec<StorePrices> {
     stores.sort_by(|a, b| b.found.cmp(&a.found).then(a.total.partial_cmp(&b.total).unwrap()));
     stores
 }

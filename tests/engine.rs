@@ -1,6 +1,6 @@
-use beans_mostly::api::cheapest_per_item;
+use beans_mostly::api::{StorePrices, rank_stores};
 use beans_mostly::normalize::{matches, normalize};
-use beans_mostly::providers::{Provider, sample};
+use beans_mostly::providers::Provider;
 use beans_mostly::recipes::*;
 
 fn s(v: &[&str]) -> Vec<String> { v.iter().map(|x| x.to_string()).collect() }
@@ -69,21 +69,18 @@ fn parse_generated_tolerates_prose_and_drops_malformed() {
     assert!(parse_generated("no json here").is_err());
 }
 
-#[tokio::test]
-async fn sample_provider_exact_match_first_and_stores_sorted() {
-    let hits = sample::search_products("sample:valuemart", "milk").unwrap();
-    assert_eq!(hits[0].name, "milk");
-    assert!(hits.iter().all(|p| p.name != "coconut milk"));
-    let stores = sample::find_stores(Some((40.0, -74.0)), 10.0);
-    assert!(stores.len() >= 3 && stores.windows(2).all(|w| w[0].distance_km <= w[1].distance_km));
+#[test]
+fn providers_declare_price_support_honestly() {
     assert!(Provider::Osm.available() && !Provider::Osm.has_products());
+    assert!(Provider::Kroger.has_products());
+    assert_eq!(Provider::for_store("kroger:01400943"), Some(Provider::Kroger));
+    assert_eq!(Provider::for_store("osm:node/1"), Some(Provider::Osm));
+    assert_eq!(Provider::for_store("sample:x"), None);
 }
 
-#[tokio::test]
-async fn cheapest_per_item_totals_and_ranks_stores() {
-    let res = cheapest_per_item(&s(&["milk", "pasta", "unobtainium"]), &s(&["sample:valuemart", "sample:greenleaf", "osm:node/1"])).await;
-    assert_eq!(res.len(), 2); // OSM has no products, so it's skipped
-    assert_eq!(res[0].found, 2);
-    assert!(res[0].total <= res[1].total);
-    assert!(res[0].rows[2].product.is_none());
+#[test]
+fn stores_rank_by_items_found_then_total() {
+    let sp = |id: &str, total: f64, found: usize| StorePrices { store_id: id.into(), rows: vec![], total, found };
+    let ranked = rank_stores(vec![sp("a", 9.0, 2), sp("b", 12.0, 3), sp("c", 8.0, 3)]);
+    assert_eq!(ranked.iter().map(|s| s.store_id.as_str()).collect::<Vec<_>>(), ["c", "b", "a"]);
 }
