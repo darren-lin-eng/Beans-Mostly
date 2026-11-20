@@ -24,11 +24,12 @@ async fn token() -> Result<String, String> {
     Ok(t)
 }
 
-pub async fn find_stores(here: (f64, f64), radius_km: f64) -> Result<Vec<Store>, String> {
+pub async fn find_stores(here: (f64, f64), radius_km: f64, chain: Option<&str>) -> Result<Vec<Store>, String> {
     let miles = ((radius_km * 0.621).round() as i64).max(1);
     let v = fetch_json(client().get(format!("{BASE}/locations")).bearer_auth(token().await?).query(&[
         ("filter.latLong.near", format!("{},{}", here.0, here.1)), ("filter.radiusInMiles", miles.to_string()), ("filter.limit", "10".into()),
     ])).await?;
+    let wanted = chain.map(|c| c.trim().to_lowercase()).filter(|c| !c.is_empty());
     let mut stores: Vec<Store> = v["data"].as_array().into_iter().flatten().filter_map(|l| {
         let lat = l["geolocation"]["latitude"].as_f64()?;
         let lng = l["geolocation"]["longitude"].as_f64()?;
@@ -40,6 +41,7 @@ pub async fn find_stores(here: (f64, f64), radius_km: f64) -> Result<Vec<Store>,
             tags: vec![g(&l["chain"]).to_lowercase()], lat, lng, distance_km: round(haversine_km(here, (lat, lng)), 1), has_products: true,
         })
     }).collect();
+    if let Some(w) = wanted { stores.retain(|s| s.name.to_lowercase().contains(&w) || s.chain.to_lowercase().contains(&w)); }
     stores.sort_by(|a, b| a.distance_km.partial_cmp(&b.distance_km).unwrap());
     Ok(stores)
 }

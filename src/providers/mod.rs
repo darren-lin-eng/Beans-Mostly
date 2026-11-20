@@ -91,10 +91,10 @@ impl Provider {
         match self { Self::Kroger => kroger::configured(), _ => true }
     }
 
-    pub async fn find_stores(self, loc: Option<(f64, f64)>, radius_km: f64) -> Result<Vec<Store>, String> {
+    pub async fn find_stores(self, loc: Option<(f64, f64)>, radius_km: f64, chain: Option<&str>) -> Result<Vec<Store>, String> {
         match self {
-            Self::Osm => osm::find_stores(loc.ok_or("A location is required")?, radius_km).await,
-            Self::Kroger => kroger::find_stores(loc.ok_or("A location is required")?, radius_km).await,
+            Self::Osm => osm::find_stores(loc.ok_or("A location is required")?, radius_km, chain).await,
+            Self::Kroger => kroger::find_stores(loc.ok_or("A location is required")?, radius_km, chain).await,
         }
     }
 

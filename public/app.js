@@ -69,6 +69,7 @@ $('#compare-prices').onclick = async () => {
 async function searchStores(provider, locText, silent) {
   const status = $('#store-status');
   const qs = new URLSearchParams({ provider });
+  if ($('#chain').value.trim()) qs.set('chain', $('#chain').value.trim());
   if (locText?.lat != null) { qs.set('lat', locText.lat); qs.set('lng', locText.lng); } else if (locText) qs.set('q', locText);
   if (!silent) status.textContent = 'Searching…';
   const { stores } = await api('/api/stores?' + qs);

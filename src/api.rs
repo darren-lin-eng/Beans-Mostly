@@ -52,7 +52,8 @@ async fn stores(Query(q): Query<HashMap<String, String>>) -> Res {
         return Err(ApiError::new(400, "Provide lat/lng or a q= place/zip"));
     }
     let radius = num("radiusKm").filter(|r| *r > 0.0).unwrap_or(8.0).min(50.0);
-    let stores = p.find_stores(loc, radius).await.map_err(|e| ApiError::new(502, e))?;
+    let chain = q.get("chain").map(String::as_str).filter(|c| !c.trim().is_empty());
+    let stores = p.find_stores(loc, radius, chain.map(|c| &c[..c.len().min(60)])).await.map_err(|e| ApiError::new(502, e))?;
     Ok(Json(json!({ "location": loc.map_or(json!({}), |(lat, lng)| json!({"lat": lat, "lng": lng})), "stores": stores })))
 }
 
