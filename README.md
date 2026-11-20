@@ -3,9 +3,11 @@
 Search local grocery stores and turn what you have (or plan to buy) into recipes — and turn recipes back into a shopping list.
 
 ```bash
-npm start        # http://localhost:3000  (Node 20+, zero dependencies)
-npm test
+cargo run --release   # http://localhost:3000   (Rust 1.85+)
+cargo test
 ```
+
+Written in Rust (axum + tokio). Ships as a single ~6 MB binary that serves the API and the `public/` UI.
 
 ## What it does
 
@@ -28,11 +30,14 @@ Lists and the meal plan live in your browser's `localStorage`.
 
 Copy `.env.example` to `.env` to configure. Set `ANTHROPIC_API_KEY` to enable recipe generation.
 
-To add a chain/aggregator (Instacart partner API, Walmart, Open Food Facts…), implement `{ id, label, hasProducts, available(), findStores(), searchProducts() }` and register it in `server/providers/index.js`.
+To add a chain/aggregator (Instacart partner API, Walmart, Open Food Facts…), add a module in `src/providers/` exposing `find_stores` / `search_products` and wire it into the `Provider` enum in `src/providers/mod.rs`.
 
 ## Layout
 
-- `server/normalize.js` — ingredient-name matching ("tomatoes" ≈ "cherry tomato", but peanut butter ≠ butter)
-- `server/recipes.js` — matching, shopping-list builder, Claude generation
-- `server/data/` — recipes and the sample catalog
+- `src/normalize.rs` — ingredient-name matching ("tomatoes" ≈ "cherry tomato", but peanut butter ≠ butter)
+- `src/recipes.rs` — matching, shopping-list builder, Claude generation
+- `src/providers/` — `sample`, `osm`, `kroger`
+- `src/api.rs` — HTTP routes; `src/main.rs` — startup and `.env` loading
+- `data/` — recipes and the sample catalog (compiled into the binary)
 - `public/` — vanilla-JS single-page UI
+- `tests/` — engine tests and HTTP end-to-end tests
